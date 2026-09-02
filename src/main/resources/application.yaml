@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: FMS
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/fms_db"
+    username: postgres
+    password: 190804
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+    validate-on-migrate: true
+    validate-migration-naming: true
+    clean-disabled: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+server:
+  port: 8080
+  servlet:
+    contextPath: /springboot
+
+jwt:
+  signerKey: "2b126077210ec4ba6f42ef735b129f3ffd9955e93f4a340485814d8475e0ae21"
+  valid-duration: 3600
+  refreshable-duration: 360000
+
+logging:
+  level:
+    com.FMS: DEBUG
+    org.springframework.security: DEBUG

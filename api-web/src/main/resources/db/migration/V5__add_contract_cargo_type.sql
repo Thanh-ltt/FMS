@@ -1,0 +1,2 @@
+ALTER TABLE contracts
+    ADD COLUMN IF NOT EXISTS cargo_type VARCHAR(50);

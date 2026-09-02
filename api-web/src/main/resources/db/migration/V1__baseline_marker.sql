@@ -1,0 +1,2 @@
+-- Baseline marker for the FMS schema.
+-- Development still uses Hibernate ddl-auto=update; future schema changes should be added as Flyway migrations.

@@ -1,0 +1,515 @@
+FMS - HAI BỘ DỮ LIỆU NHẬP TAY TRÊN WEB
+Ngày dùng để test: 15/07/2026
+
+Lưu ý:
+- Nhập theo đúng thứ tự trong từng bộ để các danh sách liên kết xuất hiện.
+- Không cần nhập ID hệ thống; web sẽ tự sinh.
+- Nếu test sau ngày 15/07/2026, đổi các ngày 15/07/2026 thành ngày hiện tại
+  và giữ ngày kết thúc/hết hạn bằng hoặc sau ngày bắt đầu.
+- Nếu mã, tên đăng nhập hoặc biển số đã tồn tại, thêm hậu tố 02 hoặc 03.
+
+======================================================================
+BỘ A - LUỒNG HOÀN CHỈNH, CỌC ĐƯỢC CẤN VÀO HÓA ĐƠN
+======================================================================
+
+A1. ĐĂNG KÝ TÀI KHOẢN Ở MÀN HÌNH ĐĂNG NHẬP
+
+Tên đăng nhập: web_kh_anphat
+Mật khẩu: WebTest@123
+Nhập lại mật khẩu: WebTest@123
+
+Kết quả cần có:
+- Đăng ký thành công.
+- Tài khoản tự có role CUSTOMER nhưng giao diện không ghi chữ "khách hàng".
+
+
+A2. THÊM NHÂN VIÊN QUẢN LÝ
+
+Mở: Nhân viên -> Thêm mới
+
+Mã nhân viên: WEB-MGR-001
+Họ và tên: Lê Thu Hà
+Giới tính: Nữ
+CCCD/Mã định danh: 079091111111
+Chức danh: Quản lý vận hành
+Quyền hệ thống: Quản lý vận hành
+Ngày sinh: 20/07/1991
+Ngày vào làm: 01/07/2026
+Số điện thoại: 0903111112
+Email: web.manager.a@example.com
+Địa chỉ: 85 Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh
+Tên đăng nhập: web_manager_a
+Mật khẩu: WebTest@123
+
+Kết quả cần có:
+- Tài khoản đăng nhập được.
+- Role MANAGER không có quyền xóa dữ liệu.
+
+
+A3. THÊM KHÁCH HÀNG VÀ LIÊN KẾT TÀI KHOẢN ĐÃ ĐĂNG KÝ
+
+Mở: Khách hàng -> Thêm khách hàng
+
+Tên khách hàng: Nguyễn Minh An
+Điện thoại: 0903111111
+CCCD/MST: 079090111111
+Ngày sinh: 15/03/1990
+Địa chỉ: 4418 Nguyễn Cửu Phú, Tân Tạo, Bình Tân, TP. Hồ Chí Minh
+Tài khoản đăng nhập: Liên kết tài khoản có sẵn
+Tên đăng nhập: web_kh_anphat
+
+Kết quả cần có:
+- Hồ sơ khách hàng hiển thị tài khoản web_kh_anphat.
+- Đăng nhập web_kh_anphat thấy được cổng khách hàng.
+
+
+A4. THÊM TÀI XẾ
+
+Mở: Tài xế -> Thêm mới
+
+Tên đăng nhập: web_tx_anphat
+Mật khẩu: WebTest@123
+Họ và tên: Phạm Quốc Bảo
+Ngày sinh: 12/05/1988
+Số điện thoại: 0903111113
+Số bằng lái: 790012345678
+Ngày hết hạn bằng lái: 31/12/2028
+Địa chỉ: 120 Lê Trọng Tấn, Tân Phú, TP. Hồ Chí Minh
+Ảnh: chọn một ảnh JPG hoặc PNG bất kỳ để kiểm tra ảnh tài xế
+
+
+A5. THÊM PHƯƠNG TIỆN
+
+Mở: Phương tiện -> Thêm xe mới
+
+Biển số xe: 51C-801.01
+Loại xe: Xe tải thùng kín
+Sức chứa: 8
+Trạng thái: Sẵn sàng
+
+Kết quả cần có:
+- Xe hiển thị "Xe tải thùng kín · 8 tấn".
+- Xe xuất hiện trong danh sách chọn khi tạo chuyến.
+
+
+A6. TẠO VÀ KÍCH HOẠT HỢP ĐỒNG
+
+Mở: Hợp đồng -> Thêm mới
+
+Mã hợp đồng: HD-WEB-A-001
+Khách hàng: Nguyễn Minh An - web_kh_anphat
+Ngày ký kết: 15/07/2026
+Hiệu lực từ ngày: 15/07/2026
+Hiệu lực đến ngày: 31/12/2026
+Loại hàng hóa: Hàng khô
+Ghi chú hàng hóa: Linh kiện điện tử đóng thùng carton, tránh nước và va đập.
+Đơn giá: 20000
+Cách xác định giá trị hợp đồng: Có giá trị thỏa thuận
+Giá trị thỏa thuận: 50000000
+Yêu cầu tiền cọc: Có
+Phạm vi áp dụng: Theo hợp đồng
+Cách tính: Phần trăm giá trị
+Tỷ lệ cọc: 20
+Xử lý tiền cọc: Cấn trừ hóa đơn
+Hạn nộp sau khi ký: 0
+Điều khoản: Cọc được cấn trừ vào hóa đơn, phần dư hoàn sau đối soát.
+
+Sau khi lưu: bấm nút Kích hoạt hợp đồng.
+
+Kết quả cần có:
+- Trạng thái: Đang hiệu lực.
+- Mức cọc yêu cầu: 10.000.000đ.
+- Bộ lọc thời hạn: Đang trong thời hạn.
+
+
+A7. GHI NHẬN TIỀN CỌC
+
+Mở biểu tượng ví tiền của HD-WEB-A-001 -> Ghi nhận cọc
+
+Phạm vi phiếu cọc: Hợp đồng
+Số phiếu: PC-WEB-A-001
+Số tiền nhận: 10000000
+Ngày nhận: 15/07/2026
+Phương thức nhận: Chuyển khoản
+Ngân hàng: Vietcombank
+Mã tham chiếu/Mã giao dịch: VCB-WEB-A-001
+Chủ tài khoản chuyển: NGUYEN MINH AN
+Số tài khoản chuyển: 0123456789
+Ghi chú: Cọc 20% giá trị hợp đồng HD-WEB-A-001.
+
+
+A8. TẠO, BẮT ĐẦU VÀ HOÀN TẤT CHUYẾN
+
+Mở: Chuyến đi -> Thêm mới
+
+Hợp đồng: HD-WEB-A-001
+Khách hàng: Nguyễn Minh An
+Tài xế: Phạm Quốc Bảo
+Xe: 51C-801.01
+Điểm đi: 4418 Nguyễn Cửu Phú, Tân Tạo, Bình Tân, TP. Hồ Chí Minh
+Điểm đến: 742 Hương lộ 2, Bình Trị Đông, Bình Tân, TP. Hồ Chí Minh
+Ngày giờ bắt đầu: 15/07/2026 14:00
+Ngày giờ kết thúc: 15/07/2026 16:00
+
+Kiểm tra tuyến đường:
+- Bấm "Tính quãng đường"; kết quả phải lớn hơn 0 km.
+- Đọc phần địa chỉ mà hệ thống đã định vị để kiểm tra có nhận đúng số nhà.
+- Sau đó nhập/chỉnh Quãng đường thành 4.2 để đối chiếu tiền cố định bên dưới.
+
+Quãng đường: 4.2
+Trọng lượng hàng: 5
+Đơn giá: 20000 (tự điền từ hợp đồng)
+
+Tiền phải tự tính:
+4,2 km x 5 tấn x 20.000đ = 420.000đ
+
+Sau khi lưu:
+1. Bấm Bắt đầu chuyến.
+2. Xe 51C-801.01 phải chuyển thành Đang chạy.
+3. Bấm Hoàn tất chuyến.
+4. Xe 51C-801.01 phải trở lại Sẵn sàng.
+
+
+A9. THÊM CHI PHÍ CHUYẾN
+
+Mở: Chi phí -> Thêm chi phí chuyến đi
+
+Chuyến đi: chọn chuyến 4418 Nguyễn Cửu Phú -> 742 Hương lộ 2
+Loại chi phí: chọn đồng thời Nhiên liệu và Cầu đường
+Tổng số tiền: 150000
+Ngày chi: 15/07/2026
+Ghi chú: 120.000đ nhiên liệu và 30.000đ phí đường bộ.
+
+
+A10. TẠO HÓA ĐƠN VÀ CẤN CỌC
+
+Mở: Hóa đơn -> Thêm mới
+
+Số hóa đơn: HDON-WEB-A-001
+Chuyến đi: chọn chuyến đã hoàn tất của Nguyễn Minh An
+Số tiền: 420000 (phải tự lấy từ chuyến và không sửa được)
+Ngày lập: 15/07/2026
+Hạn thanh toán: 30/07/2026
+Cấn cọc vào hóa đơn: Có
+Số cọc cấn trừ: 100000
+
+Kết quả sau khi lưu:
+- Tổng hóa đơn: 420.000đ.
+- Đã cấn cọc: 100.000đ.
+- Còn phải thu: 320.000đ.
+- Số dư cọc còn lại: 9.900.000đ.
+
+
+A11. GHI NHẬN THANH TOÁN HÓA ĐƠN
+
+Mở nút Ghi nhận thanh toán của HDON-WEB-A-001
+
+Ngày thanh toán: 15/07/2026
+Phương thức thanh toán: Chuyển khoản
+Ngân hàng: BIDV
+Mã giao dịch: BIDV-WEB-A-PAY-001
+Chủ tài khoản chuyển: NGUYEN MINH AN
+Số tài khoản chuyển: 0123456789
+Ghi chú: Thanh toán phần còn lại sau khi cấn cọc.
+
+Kết quả cần có:
+- Hệ thống thu đúng 320.000đ.
+- Hóa đơn chuyển thành Đã thanh toán.
+- Không được tạo thêm hóa đơn cho cùng chuyến.
+- Hóa đơn đã thanh toán không được xóa hoặc hủy.
+
+
+A12. TẠO VÀ HOÀN TẤT BẢO DƯỠNG
+
+Mở: Phương tiện -> xe 51C-801.01 -> Chuyển sang bảo dưỡng
+
+Loại bảo dưỡng: chọn Bảo dưỡng định kỳ và Thay dầu
+Ngày bảo dưỡng: 15/07/2026
+Lần tiếp theo: 15/01/2027
+Tổng chi phí: 800000
+Ghi chú: Bảo dưỡng sau chuyến test A.
+
+Sau khi lưu:
+1. Bấm Bắt đầu bảo dưỡng; xe phải chuyển sang Bảo dưỡng.
+2. Xe không được xuất hiện khi tạo chuyến khác.
+3. Bấm Hoàn tất bảo dưỡng; xe phải trở lại Sẵn sàng.
+
+
+A13. KẾT QUẢ BÁO CÁO MONG ĐỢI (KHI CHỈ CÓ BỘ A)
+
+Doanh thu ghi nhận: 420.000đ
+Đã thu: 420.000đ
+Cọc đã cấn: 100.000đ
+Cọc khả dụng: 9.900.000đ
+Chi phí chuyến: 150.000đ
+Chi phí bảo dưỡng hoàn tất: 800.000đ
+Lợi nhuận gộp: 270.000đ
+Lợi nhuận ròng: -530.000đ
+
+
+======================================================================
+BỘ B - THIẾU CỌC, CỌC GIỮ BẢO ĐẢM, HÓA ĐƠN HỦY VÀ TẠO LẠI
+======================================================================
+
+B1. THÊM KHÁCH HÀNG KÈM TÀI KHOẢN MỚI
+
+Mở: Khách hàng -> Thêm khách hàng
+
+Tên khách hàng: Trần Thị Bình
+Điện thoại: 0903222221
+CCCD/MST: 079092222221
+Ngày sinh: 25/01/1992
+Địa chỉ: 15 Quốc lộ 13, Hiệp Bình Phước, Thủ Đức, TP. Hồ Chí Minh
+Tài khoản đăng nhập: Tạo tài khoản mới
+Tên đăng nhập: web_kh_minhlong
+Mật khẩu: WebTest@123
+
+
+B2. THÊM NHÂN VIÊN KẾ TOÁN
+
+Mã nhân viên: WEB-ACC-002
+Họ và tên: Bùi Thanh Tâm
+Giới tính: Khác
+CCCD/Mã định danh: 079093222222
+Chức danh: Kế toán công nợ
+Quyền hệ thống: Kế toán
+Ngày sinh: 02/12/1993
+Ngày vào làm: 01/06/2026
+Số điện thoại: 0903222222
+Email: web.account.b@example.com
+Địa chỉ: 91 Hoàng Văn Thụ, Phú Nhuận, TP. Hồ Chí Minh
+Tên đăng nhập: web_account_b
+Mật khẩu: WebTest@123
+
+
+B3. THÊM TÀI XẾ
+
+Tên đăng nhập: web_tx_minhlong
+Mật khẩu: WebTest@123
+Họ và tên: Trương Hải Nam
+Ngày sinh: 30/10/1989
+Số điện thoại: 0903222223
+Số bằng lái: 790087654321
+Ngày hết hạn bằng lái: 31/08/2026
+Địa chỉ: 54 Quốc lộ 1A, Quận 12, TP. Hồ Chí Minh
+
+
+B4. THÊM HAI PHƯƠNG TIỆN
+
+Xe dùng cho chuyến:
+Biển số xe: 51D-902.02
+Loại xe: Xe tải đông lạnh
+Sức chứa: 5
+Trạng thái: Sẵn sàng
+
+Xe dùng để test bảo dưỡng:
+Biển số xe: 51C-903.03
+Loại xe: Xe tải chở hàng
+Sức chứa: 10
+Trạng thái: Sẵn sàng
+
+
+B5. TẠO HỢP ĐỒNG ĐANG HIỆU LỰC
+
+Mã hợp đồng: HD-WEB-B-001
+Khách hàng: Trần Thị Bình - web_kh_minhlong
+Ngày ký kết: 15/07/2026
+Hiệu lực từ ngày: 15/07/2026
+Hiệu lực đến ngày: 31/10/2026
+Loại hàng hóa: Hàng lạnh/đông lạnh
+Ghi chú hàng hóa: Thực phẩm đông lạnh từ -18°C đến -15°C.
+Đơn giá: 32000
+Cách xác định giá trị hợp đồng: Tính theo từng chuyến
+Yêu cầu tiền cọc: Có
+Phạm vi áp dụng: Theo từng chuyến
+Cách tính: Số tiền cố định
+Số tiền cọc: 1500000
+Xử lý tiền cọc: Giữ bảo đảm
+Hạn nộp sau khi ký: 0
+Điều khoản: Giữ cọc đến khi hoàn tất đối soát, không cấn vào hóa đơn.
+
+Sau khi lưu: Kích hoạt hợp đồng.
+
+
+B6. TẠO HỢP ĐỒNG TƯƠNG LAI ĐỂ TEST BỘ LỌC
+
+Mã hợp đồng: HD-WEB-B-FUTURE
+Khách hàng: Trần Thị Bình
+Ngày ký kết: 15/07/2026
+Hiệu lực từ ngày: 01/08/2026
+Hiệu lực đến ngày: 31/12/2026
+Loại hàng hóa: Hàng dễ vỡ
+Ghi chú hàng hóa: Thiết bị thủy tinh đóng kiện chống sốc.
+Đơn giá: 28000
+Cách xác định giá trị hợp đồng: Tính theo từng chuyến
+Yêu cầu tiền cọc: Không
+
+Sau khi lưu: để nguyên trạng thái Bản nháp.
+
+Kết quả cần có:
+- Bộ lọc "Chưa tới ngày bắt đầu" tìm thấy HD-WEB-B-FUTURE.
+- Đây là mốc thời gian, không phải trạng thái nghiệp vụ riêng.
+
+
+B7. ĐƯA XE THỨ HAI VÀO BẢO DƯỠNG
+
+Mở xe 51C-903.03 -> Chuyển sang bảo dưỡng
+
+Loại bảo dưỡng: chọn Phanh và Điện / ắc quy
+Ngày bảo dưỡng: 15/07/2026
+Lần tiếp theo: 15/01/2027
+Tổng chi phí: 1200000
+Ghi chú: Kiểm tra phanh và thay ắc quy.
+
+Sau khi lưu: bấm Bắt đầu bảo dưỡng và chưa hoàn tất ngay.
+
+Kết quả cần có:
+- Xe 51C-903.03 chuyển thành Bảo dưỡng.
+- Xe này không xuất hiện trong danh sách chọn khi tạo chuyến.
+
+
+B8. TẠO CHUYẾN THIẾU CỌC
+
+Hợp đồng: HD-WEB-B-001
+Khách hàng: Trần Thị Bình
+Tài xế: Trương Hải Nam
+Xe: 51D-902.02
+Điểm đi: Cảng Cát Lái, Thủ Đức, TP. Hồ Chí Minh
+Điểm đến: Khu công nghiệp Tân Tạo, Bình Tân, TP. Hồ Chí Minh
+Ngày giờ bắt đầu: 15/07/2026 15:00
+Ngày giờ kết thúc: 15/07/2026 18:00
+Quãng đường: 35.8
+Trọng lượng hàng: 4
+Đơn giá: 32000
+
+Tiền phải tự tính:
+35,8 km x 4 tấn x 32.000đ = 4.582.400đ
+
+Sau khi lưu: bấm Bắt đầu chuyến trước khi ghi nhận cọc.
+
+Kết quả cần có:
+- Hệ thống phải chặn bắt đầu chuyến vì thiếu 1.500.000đ tiền cọc.
+- Xe vẫn ở trạng thái Sẵn sàng.
+
+
+B9. GHI NHẬN CỌC THEO CHUYẾN
+
+Mở ví tiền của HD-WEB-B-001 -> Ghi nhận cọc
+
+Phạm vi phiếu cọc: Chuyến đi
+Chuyến đi: chọn chuyến Cảng Cát Lái -> Khu công nghiệp Tân Tạo
+Số phiếu: PC-WEB-B-001
+Số tiền nhận: 1500000
+Ngày nhận: 15/07/2026
+Phương thức nhận: Tiền mặt
+Ghi chú: Cọc giữ bảo đảm cho chuyến test B.
+
+Sau đó:
+1. Bắt đầu lại chuyến; lần này phải thành công.
+2. Xe 51D-902.02 phải chuyển thành Đang chạy.
+3. Thử tạo hóa đơn lúc chuyến đang chạy; chuyến không được xuất hiện để lập hóa đơn.
+4. Hoàn tất chuyến; xe phải trở lại Sẵn sàng.
+
+
+B10. THÊM CHI PHÍ CHUYẾN
+
+Chuyến đi: chuyến Cảng Cát Lái -> Khu công nghiệp Tân Tạo
+Loại chi phí: chọn Nhiên liệu, Cầu đường và Khác
+Tổng số tiền: 900000
+Ngày chi: 15/07/2026
+Ghi chú: Nhiên liệu 700.000đ, cầu đường 150.000đ, bốc xếp 50.000đ.
+
+
+B11. TẠO HÓA ĐƠN, HỦY VÀ TẠO LẠI
+
+Hóa đơn lần 1:
+Số hóa đơn: HDON-WEB-B-CANCEL
+Chuyến đi: chuyến đã hoàn tất của Trần Thị Bình
+Số tiền: 4582400 (tự lấy từ chuyến)
+Ngày lập: 15/07/2026
+Hạn thanh toán: 16/07/2026
+
+Kết quả cần có:
+- Tùy chọn cấn cọc phải bị vô hiệu hóa vì cọc là Giữ bảo đảm.
+- Sau khi lưu, bấm Hủy hóa đơn.
+
+Hóa đơn lần 2:
+Số hóa đơn: HDON-WEB-B-RECREATE
+Chuyến đi: chọn lại đúng chuyến vừa có hóa đơn bị hủy
+Số tiền: 4582400
+Ngày lập: 15/07/2026
+Hạn thanh toán: 31/07/2026
+
+Kết quả cần có:
+- Hệ thống phải cho tạo lại vì hóa đơn cũ đã hủy.
+- Sau khi tạo hóa đơn mới, không được tạo hóa đơn thứ ba chưa hủy cho cùng chuyến.
+
+
+B12. THANH TOÁN HÓA ĐƠN TẠO LẠI
+
+Hóa đơn: HDON-WEB-B-RECREATE
+Ngày thanh toán: 15/07/2026
+Phương thức thanh toán: Tiền mặt
+Mã tham chiếu: CASH-WEB-B-001
+Ghi chú: Thu đủ tiền mặt tại văn phòng.
+
+Kết quả cần có:
+- Số tiền thu: 4.582.400đ.
+- Hóa đơn chuyển thành Đã thanh toán.
+- Tiền cọc 1.500.000đ vẫn còn nguyên vì là cọc giữ bảo đảm.
+
+
+B13. HOÀN MỘT PHẦN TIỀN CỌC
+
+Mở sổ cọc của HD-WEB-B-001 -> Hoàn tiền cọc
+
+Số tiền hoàn: 500000
+Ngày hoàn: 15/07/2026
+Phương thức hoàn: Tiền mặt
+Lý do hoàn: Hoàn một phần sau đối soát chuyến test B.
+
+Kết quả cần có:
+- Đã hoàn: 500.000đ.
+- Cọc còn khả dụng: 1.000.000đ.
+- Có lịch sử hoàn cọc.
+- Không được xóa phiếu cọc vì đã phát sinh hoàn tiền.
+
+
+B14. HOÀN TẤT BẢO DƯỠNG
+
+Mở phiếu bảo dưỡng của xe 51C-903.03 -> Hoàn tất.
+
+Kết quả cần có:
+- Phiếu chuyển thành Hoàn tất.
+- Xe 51C-903.03 trở lại Sẵn sàng.
+- Chi phí bảo dưỡng 1.200.000đ được đưa vào báo cáo.
+
+
+B15. KẾT QUẢ BÁO CÁO MONG ĐỢI (KHI CHỈ CÓ BỘ B)
+
+Doanh thu ghi nhận: 4.582.400đ
+Đã thu: 4.582.400đ
+Cọc đã cấn: 0đ
+Cọc khả dụng sau hoàn: 1.000.000đ
+Chi phí chuyến: 900.000đ
+Chi phí bảo dưỡng hoàn tất: 1.200.000đ
+Lợi nhuận gộp: 3.682.400đ
+Lợi nhuận ròng: 2.482.400đ
+
+
+======================================================================
+KIỂM TRA NHANH SAU KHI NHẬP CẢ HAI BỘ
+======================================================================
+
+1. ADMIN thấy nút xóa; MANAGER và ACCOUNTANT không thấy nút xóa.
+2. Tài khoản CUSTOMER chỉ thấy dữ liệu của chính khách hàng đã liên kết.
+3. Tài khoản DRIVER chỉ thấy hồ sơ và chuyến của chính tài xế.
+4. Xe Đang chạy/Bảo dưỡng/Ngưng hoạt động không được chọn cho chuyến mới.
+5. Không thể tạo hóa đơn trước khi chuyến Hoàn tất.
+6. Không thể tạo lại hóa đơn Đã thanh toán; được tạo lại nếu hóa đơn cũ Đã hủy.
+7. Hợp đồng có chuyến hoặc phiếu cọc liên quan phải bị chặn xóa.
+8. Thử để trống ngày sinh, điện thoại, CCCD, địa chỉ hoặc ngày hết hạn bằng lái;
+   web phải báo bắt buộc và không gửi dữ liệu.
+9. Thử chọn ngày kết thúc trước ngày bắt đầu; web/backend phải từ chối.
+10. Mở Báo cáo, kiểm tra các bộ lọc ngày, khách hàng, trạng thái; sau đó thử
+    Xem chi tiết, Xuất CSV và In báo cáo.
